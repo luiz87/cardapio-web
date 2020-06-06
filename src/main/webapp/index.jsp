@@ -1,3 +1,6 @@
+<%@page import="dao.ProdutoDao"%>
+<%@page import="modelo.Produto"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,22 +24,28 @@
 	<div class="container">
 
 		<form>
+		<%
+		ProdutoDao dao = new ProdutoDao();
+		List<Produto> ls = dao.buscarTudo();
+		
+		for(Produto p : ls){
+		
+		%>
 			<div class="produto">
 				<div class="form-group row number-input">
-					<label for="prd-1" class="col-7 col-form-label">Alface
-						America Pé</label>
+					<label for="prd-1" class="col-7 col-form-label"><%=p.getNome() %></label>
 					<div class="col-5">
 						<div class="input-group">
 							<div class="input-group-prepend"
-								onclick="this.parentNode.querySelector('input[type=number]').stepDown(); atualizar('prd-1',3.90);">
+								onclick="this.parentNode.querySelector('input[type=number]').stepDown(); atualizar('prd-<%=p.getId() %>',<%=p.getPreco() %>);">
 								<div class="input-group-text">
 									<i class="fa fa-chevron-down"></i>
 								</div>
 							</div>
-							<input id="prd-1" name="prd-1" type="number" class="form-control"
+							<input id="prd-<%=p.getId() %>" name="prd-<%=p.getId() %>" type="number" class="form-control"
 								value="0" min="0">
 							<div class="input-group-append"
-								onclick="this.parentNode.querySelector('input[type=number]').stepUp(); atualizar('prd-1',3.90);">
+								onclick="this.parentNode.querySelector('input[type=number]').stepUp(); atualizar('prd-<%=p.getId() %>',<%=p.getPreco() %>);">
 								<div class="input-group-text">
 									<i class="fa fa-chevron-up"></i>
 								</div>
@@ -44,9 +53,13 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-12 valor">R$ 3.90</div>
+				<div class="col-12 valor">R$ <%=p.getPreco() %></div>
 				<hr />
 			</div>
+			
+			<%
+				}
+			%>
 
 
 			<div class="produto">
