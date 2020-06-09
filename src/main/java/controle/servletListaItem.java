@@ -2,12 +2,14 @@ package controle;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/enviarListaItem")
 public class servletListaItem extends HttpServlet {
@@ -26,7 +28,13 @@ public class servletListaItem extends HttpServlet {
 			
 		} catch (Exception e) { }
 		
-		System.out.println(sb.toString());
+		System.out.println(sb.toString().replace("null,", ""));
+		
+		HttpSession sessao =  req.getSession();
+		sessao.setAttribute("lista-item-json", sb.toString().replace("null,", ""));
+		
+		PrintWriter out = resp.getWriter();
+		out.print("form-cliente.jsp");
 		
 	}
 }
