@@ -34,3 +34,11 @@ function valorFinal() {
 				"disabled");
 	}
 }
+
+
+
+
+
+
+
+
