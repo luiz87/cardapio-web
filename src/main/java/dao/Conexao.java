@@ -8,7 +8,7 @@ public class Conexao {
 	public static Connection getConectar() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10345847", "sql10345847", "zZ67Vva3n3");
+			Connection con = DriverManager.getConnection("jdbc:mysql://sql10.freemysqlhosting.net/sql10348566", "sql10348566", "GbRvXbcsfj");
 			return con;
 		} catch (Exception e) {
 			e.printStackTrace();

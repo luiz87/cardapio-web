@@ -13,11 +13,10 @@ import javax.servlet.http.HttpSession;
 
 @WebServlet(urlPatterns = "/enviarListaItem")
 public class servletListaItem extends HttpServlet {
-	
+
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
-		
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		StringBuffer sb = new StringBuffer();
 		String linha = null;
 		try {
@@ -25,16 +24,17 @@ public class servletListaItem extends HttpServlet {
 			while ((linha = reader.readLine()) != null) {
 				sb.append(linha);
 			}
-			
-		} catch (Exception e) { }
-		
+
+		} catch (Exception e) {
+		}
+
 		System.out.println(sb.toString().replace("null,", ""));
-		
-		HttpSession sessao =  req.getSession();
+
+		HttpSession sessao = req.getSession();
 		sessao.setAttribute("lista-item-json", sb.toString().replace("null,", ""));
-		
+
 		PrintWriter out = resp.getWriter();
 		out.print("form-cliente.jsp");
-		
+
 	}
 }
