@@ -59,7 +59,7 @@
 					out.println("<td>" + pedido.getTotal() + "</td>");
 					out.println("</tr>");
 
-					sessao.setAttribute("pedido", pedido);
+					sessao.setAttribute("objPedido", pedido);
 				%>
 			</tbody>
 		</table>
