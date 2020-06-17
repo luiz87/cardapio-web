@@ -58,6 +58,8 @@
 					out.println("<td></td>");
 					out.println("<td>" + pedido.getTotal() + "</td>");
 					out.println("</tr>");
+
+					sessao.setAttribute("pedido", pedido);
 				%>
 			</tbody>
 		</table>
@@ -67,7 +69,9 @@
 		%>
 
 	</div>
-	<button id="bt-concluir-pedido" name="submit" type="submit"
-		class="btn btn-primary confirmar">Concluir Pedido</button>
+	<form action="servletPedido" method="post">
+		<button id="bt-concluir-pedido" name="submit" type="submit"
+			class="btn btn-primary confirmar">Concluir Pedido</button>
+	</form>
 </body>
 </html>
