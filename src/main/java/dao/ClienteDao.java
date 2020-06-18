@@ -25,7 +25,8 @@ public class ClienteDao {
 			ResultSet rs = stm.getGeneratedKeys();
 			rs.next();
 			cliente.setId(rs.getInt(1));
-			
+			stm.close();
+			conexao.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();

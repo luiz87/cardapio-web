@@ -23,7 +23,8 @@ public class PedidoDao {
 			ResultSet rs = stm.getGeneratedKeys();
 			rs.next();
 			pedido.setId(rs.getInt(1));
-			
+			stm.close();
+			conexao.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

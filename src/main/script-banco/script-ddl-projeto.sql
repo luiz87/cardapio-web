@@ -1,4 +1,4 @@
--- Geração de Modelo físico
+-- Geraï¿½ï¿½o de Modelo fï¿½sico
 -- Sql ANSI 2003 - brModelo.
 
 
@@ -38,7 +38,7 @@ id int auto_increment PRIMARY KEY,
 nome varchar(100),
 cidade varchar(100),
 endereco varchar(200),
-telefone varchar(11)
+telefone varchar(15)
 );
 
 ALTER TABLE produto ADD FOREIGN KEY(id_categoria) REFERENCES categoria (id);

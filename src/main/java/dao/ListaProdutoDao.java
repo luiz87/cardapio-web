@@ -17,9 +17,9 @@ public class ListaProdutoDao {
 			stm.setInt(2, lsProduto.getIdPedido());
 			stm.setInt(3, lsProduto.getQuantidade());
 			stm.setFloat(4, lsProduto.getTotal());
-			
 			stm.executeUpdate();
-			
+			stm.close();
+			conexao.close();
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
